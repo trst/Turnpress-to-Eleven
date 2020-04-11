@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>{{ title + " | " if title }}{{ pageTitle + " | " if pageTitle }} {{ site.name }}</title>
+  
+  {% block metadata %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Eleventy and Dynalist">
+  <meta name="author" content="Steven Teskey">
+  <meta name="description" content="{{ description if description else 'The professional portfolio of Steven Teskey, a dedicated educator, open-source advocate and frontend engineer.' }}">
+  {% endblock %}
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  {% include ('partials/header.twig') %}
+  
+  {% include ('partials/navigation.twig') %}
+
+  <main id="main-content" class="main-content">
+    {% block content %}
+    {{ content | safe }} 
+    {% endblock content %}
+  </main>
+
+  {% include ('partials/footer.twig') %}
+
+ <script src="/assets/js/main.js"></script>
+</body>
+</html>

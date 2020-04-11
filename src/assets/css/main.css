@@ -1,0 +1,10 @@
+/** Custom Properties */
+:root {
+  --color-white: #fff;
+}
+
+
+
+body {
+  background-color: var(--color-white);
+}

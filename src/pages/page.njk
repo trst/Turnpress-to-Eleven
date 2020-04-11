@@ -1,0 +1,23 @@
+---
+pagination:
+  data: pages
+  size: 1
+  alias: post
+permalink: "/{{ post.slug }}/index.html"
+---
+{% extends "base.njk" %}
+
+{# Set title programatically by passing to `base.njk` as variable #}
+{% set pageTitle = post.title.rendered | safe %}
+
+{% block content %}
+  <header class="page__header">
+    <h1 class="page__title">{{ post.title.rendered | safe }}</h1>
+  </header>
+
+  <div class="page__content">
+    <p>{{ post.date | date('YYYY-mm-DD') }}</p>
+
+    {{ post.content.rendered }}
+  </div>
+{% endblock %}

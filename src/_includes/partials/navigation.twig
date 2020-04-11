@@ -1,0 +1,11 @@
+  <nav id="main-navigation" class="main-navigation">
+    <ul class="main-navigation__list flex">
+      {% for link in pages|sort_array("title.rendered", "asc") %}
+      <li class="main-navigation__item">
+        <a href="/{{ link.slug }}">
+          {{ link.title.rendered | safe }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>

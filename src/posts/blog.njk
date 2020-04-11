@@ -1,0 +1,42 @@
+---
+pagination:
+  data: posts
+  size: 10
+permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1 }}{% endif %}/index.html
+---
+
+{# Set Basic Template #}
+{% extends "base.njk" %}
+
+{# Set title programatically by passing to `base.njk` as variable #}
+{% set pageTitle = "Blog" %}
+
+{% block content %}
+  <header class="page__header">
+    <h1 class="page__title">{{ pageTitle }}</h1>
+  </header>
+
+  <div class="page__content">
+    <ul>
+    {% for post in pagination.items %}
+      <li>
+        <a href="/blog/{{ post.slug }}">
+          {{ post.title.rendered | safe }}
+        </a>
+      </li>
+    {% else %}
+      <li>No posts available.</li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+    {% for href in pagination.hrefs %}
+      <li>
+        <a href="{{ href }}" {% if href == page.url %}aria-current="page"{% endif %}>
+          {{ loop.index }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

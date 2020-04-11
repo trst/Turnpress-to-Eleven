@@ -1,0 +1,22 @@
+---
+pagination:
+  data: posts
+  size: 1
+  alias: post
+permalink: blog/{{ post.slug }}/index.html
+---
+
+{% extends "base.njk" %}
+{% set pageTitle = post.title.rendered %}
+
+{% block content %}
+  <header class="post__header">
+    <h1 class="post__title">{{ post.title.rendered }}</h1>
+  </header>
+
+  <div class="post__content">
+    <p>{{ post.date | date('YYYY-mm-DD') }}</p>
+
+    {{ post.content.rendered }}
+  </div>
+{% endblock %}

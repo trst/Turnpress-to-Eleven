@@ -1,0 +1,27 @@
+---
+permalink: index.html
+---
+{% extends "base.njk" %}
+
+{# Set title programatically by passing to `base.njk` as variable #}
+{% set pageTitle = "Home Page" %}
+
+{% block content %}
+<h1>{{ pageTitle }}</h1>
+
+<h2>Recent Blog Posts</h2>
+
+<ul>
+{% for post in posts %}
+  {# Limit loop to latest 3 posts #}
+  {% if loop.index <= 3 %}
+  <li>
+    <a href="/{{ post.slug }}">
+      {# `safe` filter used here to render HTML entities in title #}
+      {{ post.title.rendered | safe }}
+    </a>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}
