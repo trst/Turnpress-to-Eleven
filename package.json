@@ -1,0 +1,28 @@
+{
+  "name": "turnpress-to-eleven",
+  "version": "1.0.0",
+  "description": "Have your clients and team create content in WordPress but build out to beautiful static HTML, JS and CSS using Eleventy.",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eleventy-plugin-local-images": "^0.3.0",
+    "eleventy-plugin-markdown-shortcode": "^1.0.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trst/Turnpress-to-Eleven.git"
+  },
+  "author": "Steven Teskey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trst/Turnpress-to-Eleven/issues"
+  },
+  "homepage": "https://github.com/trst/Turnpress-to-Eleven#readme"
+}
