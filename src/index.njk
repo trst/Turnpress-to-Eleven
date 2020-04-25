@@ -16,7 +16,7 @@ permalink: index.html
   {# Limit loop to latest 3 posts #}
   {% if loop.index <= 3 %}
   <li>
-    <a href="/{{ post.slug }}">
+    <a href="/blog/{{ post.slug }}">
       {# `safe` filter used here to render HTML entities in title #}
       {{ post.title.rendered | safe }}
     </a>
