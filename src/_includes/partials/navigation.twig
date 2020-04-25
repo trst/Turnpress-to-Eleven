@@ -1,11 +1,25 @@
   <nav id="main-navigation" class="main-navigation">
     <ul class="main-navigation__list flex">
-      {% for link in pages|sort_array("title.rendered", "asc") %}
-      <li class="main-navigation__item">
-        <a href="/{{ link.slug }}">
-          {{ link.title.rendered | safe }}
-        </a>
-      </li>
-      {% endfor %}
+      {% if menu|length > 0 %}
+        {# Default checks for menu object (see `src/_data/menu.js`) #}
+
+        {% for link in menu %}
+        <li class="main-navigation__item">
+          <a href="/{{ link.slug }}">
+            {{ link.title | safe }}
+          </a>
+        </li>
+        {% endfor %}
+      {% else %}
+        {# Fallback to showing all pages sorted by title #}
+
+        {% for link in pages|sort_array("title.rendered", "asc") %}
+        <li class="main-navigation__item">
+          <a href="/{{ link.slug }}">
+            {{ link.title.rendered | safe }}
+          </a>
+        </li>
+        {% endfor %}
+      {% endif %}
     </ul>
   </nav>
