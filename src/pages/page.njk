@@ -18,6 +18,6 @@ permalink: "/{{ post.slug }}/index.html"
   <div class="page__content">
     <p>{{ post.date | date('YYYY-mm-DD') }}</p>
 
-    {{ post.content.rendered }}
+    {{ post.content.rendered | safe }}
   </div>
 {% endblock %}

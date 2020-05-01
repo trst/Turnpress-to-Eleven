@@ -17,6 +17,6 @@ permalink: blog/{{ post.slug }}/index.html
   <div class="post__content">
     <p>{{ post.date | date('YYYY-mm-DD') }}</p>
 
-    {{ post.content.rendered }}
+    {{ post.content.rendered | safe }}
   </div>
 {% endblock %}
