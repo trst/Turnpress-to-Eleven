@@ -20,7 +20,7 @@ const fetch = require('node-fetch');
  */
 
 // Unless set to 'true', return empty array
-const enabled = false; 
+const enabled = true; 
 
 // Set custom endpoint to retrieve data from; this is by default setup
 // for Wordpress, but there's no reason why you couldn't pull from
